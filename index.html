@@ -2,124 +2,148 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lista de Invitados</title>
   <style>
     body { font-family: Arial, sans-serif; padding: 20px; }
     table { border-collapse: collapse; width: 100%; max-width: 600px; }
     th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
     th { background-color: #f4f4f4; }
+	
+	div.dt-container {
+		margin: 0 auto;
+		width: 80%;
+	}
   </style>
-  <style href="https://cdn.datatables.net/2.3.0/css/dataTables.dataTables.min.css" />
-  <script src="https://cdn.datatables.net/2.3.0/js/dataTables.min.js" />
-  <script>
+  <!-- <link href="https://cdn.datatables.net/2.3.0/css/dataTables.dataTables.min.css" type="text/css" /> -->
+  <!-- Bootstrap 5 CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+	<!-- DataTables con estilo Bootstrap -->
+	<link rel="stylesheet" href="https://cdn.datatables.net/2.3.0/css/dataTables.bootstrap5.min.css">
   
-var dataSet = [
-	['Engely Perez', 'Mesa 1'],
-	['Angel Cabrera', 'Mesa 1'],
-	['Bruno Cabrera', 'Mesa 1'],
-	['Engelbert Perez', 'Mesa 1'],
-	['Maria Perez', 'Mesa 1'],
-	['Engimar Perez', 'Mesa 3'],
-	['Genesis Perez', 'Mesa 1'],
-	['Jean Carlos Sumavila', 'Mesa 1'],
-	['Wendy Liendo', 'Mesa 3'],
-	['Javier Betancourt', 'Mesa 3'],
-	['Zuli Betancourt', 'Mesa 4'],
-	['Emily', 'Mesa 4'],
-	['Jorge Liendo.', 'Mesa 4'],
-	['Dominga', 'Mesa 4'],
-	['Heli García', 'Mesa 5'],
-	['Fabian García', 'Mesa 5'],
-	['Isabel', 'Mesa 5'],
-	['Samuel', 'Mesa 5'],
-	['Samuel Jr', 'Mesa 5'],
-	['MIranda', 'Mesa 5'],
-	['Maritza', 'Mesa 5'],
-	['Rodrigo Carvajal.', 'Mesa 5'],
-	['Gaby Betancourt', 'Mesa 4'],
-	['Diego', 'Mesa 4'],
-	['Cesar', 'Mesa 4'],
-	['Sybaris Corona', 'Mesa 3'],
-	['Nicolas D melios', 'Mesa 6'],
-	['Lilibeth Esposa NIco', 'Mesa 6'],
-	['Amelie D melios', 'Mesa 6'],
-	['Pedro Pico', 'Mesa 6'],
-	['Adriana Andrade', 'Mesa 6'],
-	['Leopoldo Soto', 'Mesa 6'],
-	['Albanys Esposa Leo', 'Mesa 6'],
-	['Martin Soto', 'Mesa 6'],
-	['Francelys Heredia', 'Mesa 6'],
-	['Heberth Caripa', 'Mesa 6'],
-	['Jesus Acevedo', 'Mesa 3'],
-	['Pareja Jesus', 'Mesa 3'],
-	['Albert Acevado.', 'Mesa 3'],
-	['Pareja Albert', 'Mesa 3'],
-	['Liliana Uribe', 'Mesa 7'],
-	['Pedro Orozco', 'Mesa 7'],
-	['Diego Orozco', 'Mesa 7'],
-	['Mailyn Lozada', 'Mesa 7'],
-	['Francisco Esposo May', 'Mesa 7'],
-	['Rosimart Gomez', 'Mesa 7'],
-	['Manuel Esposo Rosi', 'Mesa 7'],
-	['Orlando Pernia', 'Mesa 7'],
-	['Xiomara Gonzalez', 'Mesa 1'],
-	['Jorge Cabrera', 'Mesa 1'],
-	['Jorge Cabrera Jr', 'Mesa 2'],
-	['Paola Rivero', 'Mesa 2'],
-	['Manuel Rodriguez', 'Mesa 2'],
-	['Marian Delgado', 'Mesa 2'],
-	['Helena Rodríguez', 'Mesa 2'],
-	['Rafael Machado', 'Mesa 9'],
-	['Pareja Rafa', 'Mesa 9'],
-	['Sr. Carmen Machado', 'Mesa 9'],
-	['Felix Utrera', 'Mesa 9'],
-	['Gloryen', 'Mesa 9'],
-	['felix Jr', 'Mesa 9'],
-	['Giselle Utrera', 'Mesa 9'],
-	['Jennifer Brito', 'Mesa 10'],
-	['Pareja Jenny', 'Mesa 10'],
-	['Esther Marquez', 'Mesa 10'],
-	['Pedro Rodríguez', 'Mesa 10'],
-	['Karla Padilla', 'Mesa 10'],
-	['Miguel Quintero', 'Mesa 10'],
-	['Maximo Quintero', 'Mesa 10'],
-	['Guillermo Horno', 'Mesa 9'],
-	['Mariana Márquez', 'Mesa 9'],
-	['Federica Horno', 'Mesa 9'],
-	['Juliana Horno', 'Mesa 9'],
-	['Joel Pallotta', 'Mesa 8'],
-	['Pareja Joel', 'Mesa 8'],
-	['Jorge Simoes', 'Mesa 1'],
-	['Kamaly Acevedo', 'Mesa 1'],
-	['Aleska Salas', 'Mesa 8'],
-	['Jose Zalem', 'Mesa 8'],
-	['Arturo Navas', 'Mesa 2'],
-	['Jefferson Gamez', 'Mesa 2'],
-	['Roman Valenzuela', 'Mesa 2'],
-	['Blanca Gonzalez', 'Mesa 2'],
-	['Jesus David Valenzuela', 'Mesa 2'],
-	['Jairo Marín', 'Mesa 8'],
-	['Pareja Jairo', 'Mesa 8'],
-	['Dany Jojoto', 'Mesa 8'],
-	['José Luis Muñoz', 'Mesa 3'],
-	['Jose Jose', 'Mesa 3'],
-	['Angel Borges', 'Mesa 3']
-];
+  <script src="https://code.jquery.com/jquery-3.7.1.js" type="text/javascript"></script>
+  <script src="https://cdn.datatables.net/2.3.0/js/dataTables.min.js" type="text/javascript"></script>
+  
+  <!-- Bootstrap JS bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- DataTables con Bootstrap -->
+<script src="https://cdn.datatables.net/2.3.0/js/dataTables.bootstrap5.min.js"></script>
+  
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+		var dataSet = [
+			['Engely Perez', 'Mesa 1'],
+			['Angel Cabrera', 'Mesa 1'],
+			['Bruno Cabrera', 'Mesa 1'],
+			['Engelbert Perez', 'Mesa 1'],
+			['Maria Perez', 'Mesa 1'],
+			['Engimar Perez', 'Mesa 3'],
+			['Genesis Perez', 'Mesa 1'],
+			['Jean Carlos Sumavila', 'Mesa 1'],
+			['Wendy Liendo', 'Mesa 3'],
+			['Javier Betancourt', 'Mesa 3'],
+			['Zuli Betancourt', 'Mesa 4'],
+			['Emily', 'Mesa 4'],
+			['Jorge Liendo', 'Mesa 4'],
+			['Dominga', 'Mesa 4'],
+			['Heli García', 'Mesa 5'],
+			['Fabian García', 'Mesa 5'],
+			['Isabel', 'Mesa 5'],
+			['Samuel', 'Mesa 5'],
+			['Samuel Jr', 'Mesa 5'],
+			['MIranda', 'Mesa 5'],
+			['Maritza', 'Mesa 5'],
+			['Rodrigo Carvajal.', 'Mesa 5'],
+			['Gaby Betancourt', 'Mesa 4'],
+			['Diego', 'Mesa 4'],
+			['Cesar', 'Mesa 4'],
+			['Sybaris Corona', 'Mesa 3'],
+			['Nicolas D melios', 'Mesa 6'],
+			['Lilibeth Esposa NIco', 'Mesa 6'],
+			['Amelie D melios', 'Mesa 6'],
+			['Pedro Pico', 'Mesa 6'],
+			['Adriana Andrade', 'Mesa 6'],
+			['Leopoldo Soto', 'Mesa 6'],
+			['Albanys Esposa Leo', 'Mesa 6'],
+			['Martin Soto', 'Mesa 6'],
+			['Francelys Heredia', 'Mesa 6'],
+			['Heberth Caripa', 'Mesa 6'],
+			['Jesus Acevedo', 'Mesa 3'],
+			['Pareja Jesus', 'Mesa 3'],
+			['Albert Acevado.', 'Mesa 3'],
+			['Pareja Albert', 'Mesa 3'],
+			['Liliana Uribe', 'Mesa 7'],
+			['Pedro Orozco', 'Mesa 7'],
+			['Diego Orozco', 'Mesa 7'],
+			['Mailyn Lozada', 'Mesa 7'],
+			['Francisco Esposo May', 'Mesa 7'],
+			['Rosimart Gomez', 'Mesa 7'],
+			['Manuel Esposo Rosi', 'Mesa 7'],
+			['Orlando Pernia', 'Mesa 7'],
+			['Xiomara Gonzalez', 'Mesa 1'],
+			['Jorge Cabrera', 'Mesa 1'],
+			['Jorge Cabrera Jr', 'Mesa 2'],
+			['Paola Rivero', 'Mesa 2'],
+			['Manuel Rodriguez', 'Mesa 2'],
+			['Marian Delgado', 'Mesa 2'],
+			['Helena Rodríguez', 'Mesa 2'],
+			['Rafael Machado', 'Mesa 9'],
+			['Pareja Rafa', 'Mesa 9'],
+			['Sr. Carmen Machado', 'Mesa 9'],
+			['Felix Utrera', 'Mesa 9'],
+			['Gloryen', 'Mesa 9'],
+			['felix Jr', 'Mesa 9'],
+			['Giselle Utrera', 'Mesa 9'],
+			['Jennifer Brito', 'Mesa 10'],
+			['Pareja Jenny', 'Mesa 10'],
+			['Esther Marquez', 'Mesa 10'],
+			['Pedro Rodríguez', 'Mesa 10'],
+			['Karla Padilla', 'Mesa 10'],
+			['Miguel Quintero', 'Mesa 10'],
+			['Maximo Quintero', 'Mesa 10'],
+			['Guillermo Horno', 'Mesa 9'],
+			['Mariana Márquez', 'Mesa 9'],
+			['Federica Horno', 'Mesa 9'],
+			['Juliana Horno', 'Mesa 9'],
+			['Joel Pallotta', 'Mesa 8'],
+			['Pareja Joel', 'Mesa 8'],
+			['Jorge Simoes', 'Mesa 1'],
+			['Kamaly Acevedo', 'Mesa 1'],
+			['Aleska Salas', 'Mesa 8'],
+			['Jose Zalem', 'Mesa 8'],
+			['Arturo Navas', 'Mesa 2'],
+			['Jefferson Gamez', 'Mesa 2'],
+			['Roman Valenzuela', 'Mesa 2'],
+			['Blanca Gonzalez', 'Mesa 2'],
+			['Jesus David Valenzuela', 'Mesa 2'],
+			['Jairo Marín', 'Mesa 8'],
+			['Pareja Jairo', 'Mesa 8'],
+			['Dany Jojoto', 'Mesa 8'],
+			['José Luis Muñoz', 'Mesa 3'],
+			['Jose Jose', 'Mesa 3'],
+			['Angel Borges', 'Mesa 3']
+		];
 
-new DataTable('#lista_invitados', {
-    columns: [
-        { title: 'Nombre' },
-        { title: 'Mesa' }
-    ],
-    data: dataSet
-});
+		new DataTable('#lista_invitados', {
+			paging: false,
+			columns: [
+				{ title: 'Nombre' },
+				{ title: 'Mesa' }
+			],
+			data: dataSet,
+			layout: {
+				top: ''
+			},
+			language: {
+				search: "Buscar invitado:"
+			}
+		});
+	});
+	
   </script>
 </head>
 <body>
-
   <h1>Lista de Invitados</h1>
-  <table id='lista_invitados'>
-
-  </table>
+  <table id='lista_invitados' class="display" width="100%"></table>
 </body>
 </html>
