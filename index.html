@@ -54,14 +54,36 @@
 	  pointer-events: none; /* evita que bloquee clics */
 	  z-index: 100;   /* siempre encima del contenido */
 	}
+	
+	/* Ocultar en pantallas de 600px o menos */
+	@media (max-width: 600px) {
+	  .logo-corner {
+		display: none;
+	  }
+	}
 
     table { border-collapse: collapse; width: 100%; max-width: 600px; }
     th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-    th { background: linear-gradient(
-  to bottom,
-  rgb(160, 180, 100) 0%,
-  rgba(160, 180, 100, 0) 100%
-);}
+    th { 
+		background: linear-gradient(
+		  to bottom,
+		  rgb(160, 180, 100) 0%,
+		  rgba(160, 180, 100, 0) 100%
+		);
+		
+	}
+	
+	/* Esquina superior izquierda */
+	th:first-child {
+	  border-top-left-radius: 15px;
+	 
+	}
+
+	/* Esquina superior derecha */
+	th:last-child {
+	  border-top-right-radius: 15px;
+	  
+	}
 
 	div.dt-container {
 		margin: 0 auto;
