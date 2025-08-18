@@ -6,58 +6,62 @@
   <title>Lista de Invitados</title>
   <style>
 	/*body {
-  background-color: rgb(223, 210, 190); /* Beige más cálido */
-  background-image: 
-    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.2), transparent 70%),
-    radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.08), transparent 60%),
-    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 3px, transparent 3px, transparent 8px),
-    repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.02) 0px, rgba(0, 0, 0, 0.02) 2px, transparent 2px, transparent 6px);
-  background-blend-mode: multiply;
-  box-shadow: inset 0 0 90px rgba(0, 0, 0, 0.15);
-  font-family: "Georgia", serif;
-  color: #333;
-}*/
+	  background-color: rgb(223, 210, 190); /* Beige más cálido */
+	  background-image: 
+		radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.2), transparent 70%),
+		radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.08), transparent 60%),
+		repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 3px, transparent 3px, transparent 8px),
+		repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.02) 0px, rgba(0, 0, 0, 0.02) 2px, transparent 2px, transparent 6px);
+	  background-blend-mode: multiply;
+	  box-shadow: inset 0 0 90px rgba(0, 0, 0, 0.15);
+	  font-family: "Georgia", serif;
+	  color: #333;
+	}*/
 
-:root{
-  --paper-base: rgb(223, 210, 190); /* Beige más marcado */
-}
+	:root{
+	  --paper-base: rgb(223, 210, 190); /* Beige más marcado */
+	}
 
-html, body {
-  height: 100%;
-  margin: 0;
-}
+	html, body {
+	  height: 100%;
+	  margin: 0;
+	}
 
-.paper{
-  min-height: 100%;
-  padding: 4rem 2rem;
+	.paper{
+	  min-height: 100%;
+	  padding: 4rem 2rem;
 
-  /* Papel beige arrugado/desgastado (solo CSS) */
-  background-color: var(--paper-base);
-  background-image:
-    radial-gradient(circle at 30% 20%, rgba(255,255,255,.20), transparent 70%),
-    radial-gradient(circle at 70% 80%, rgba(0,0,0,.08), transparent 60%),
-    repeating-linear-gradient(135deg, rgba(255,255,255,.05) 0px, rgba(255,255,255,.05) 3px, transparent 3px, transparent 8px),
-    repeating-linear-gradient(45deg, rgba(0,0,0,.02) 0px, rgba(0,0,0,.02) 2px, transparent 2px, transparent 6px);
-  background-blend-mode: multiply;
-  box-shadow: inset 0 0 90px rgba(0,0,0,.15);
-  color: #333;
-  font-family: Georgia, "Times New Roman", serif;
-}
+	  /* Papel beige arrugado/desgastado (solo CSS) */
+	  background-color: var(--paper-base);
+	  background-image:
+		radial-gradient(circle at 30% 20%, rgba(255,255,255,.20), transparent 70%),
+		radial-gradient(circle at 70% 80%, rgba(0,0,0,.08), transparent 60%),
+		repeating-linear-gradient(135deg, rgba(255,255,255,.05) 0px, rgba(255,255,255,.05) 3px, transparent 3px, transparent 8px),
+		repeating-linear-gradient(45deg, rgba(0,0,0,.02) 0px, rgba(0,0,0,.02) 2px, transparent 2px, transparent 6px);
+	  background-blend-mode: multiply;
+	  box-shadow: inset 0 0 90px rgba(0,0,0,.15);
+	  color: #333;
+	  font-family: Georgia, "Times New Roman", serif;
+	}
 
-.logo-corner {
-  position: fixed;
-  bottom: 20px;   /* separación desde abajo */
-  right: 20px;    /* separación desde la derecha */
-  width: 160px;   /* ajusta el tamaño según necesites */
-  height: auto;
-  opacity: 0.85;  /* un poco translúcido si quieres elegancia */
-  pointer-events: none; /* evita que bloquee clics */
-  z-index: 100;   /* siempre encima del contenido */
-}
+	.logo-corner {
+	  position: fixed;
+	  bottom: 20px;   /* separación desde abajo */
+	  right: 20px;    /* separación desde la derecha */
+	  width: 160px;   /* ajusta el tamaño según necesites */
+	  height: auto;
+	  opacity: 0.85;  /* un poco translúcido si quieres elegancia */
+	  pointer-events: none; /* evita que bloquee clics */
+	  z-index: 100;   /* siempre encima del contenido */
+	}
 
     table { border-collapse: collapse; width: 100%; max-width: 600px; }
     th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-    th { background-color: #f4f4f4; }
+    th { background: linear-gradient(
+  to bottom,
+  rgb(160, 180, 100) 0%,
+  rgba(160, 180, 100, 0) 100%
+);}
 
 	div.dt-container {
 		margin: 0 auto;
@@ -113,11 +117,11 @@ html, body {
 		['Javier Betancourt', 'Mesa',3],
 		['Sybaris Corona', 'Mesa',3],
 		['Jesus Acevedo', 'Mesa',3],
-		['Albert Acevado.', 'Mesa',3],
+		['Albert Acevedo', 'Mesa',3],
 				
 		['Zuleidy Reyes', 'Mesa',4],
 		['Emily Medina', 'Mesa',4],
-		['Jorge Liendo.', 'Mesa',4],
+		['Jorge Liendo', 'Mesa',4],
 		['Dominga Planchart', 'Mesa',4],
 		['Gaby Betancourt', 'Mesa',4],
 		['Diego Izzo', 'Mesa',4],
@@ -129,7 +133,7 @@ html, body {
 		['Samuel Nieve', 'Mesa',5],
 		['Samuel Jr. Nieve', 'Mesa',5], //niñ@
 		['Miranda Nieve', 'Mesa',5], //niñ@
-		['Maritza', 'Mesa',5],
+		['Maritza Medina', 'Mesa',5],
 		['Rodrigo Carvajal', 'Mesa',5],
 		
 		['Nicolas D\'Amelio', 'Mesa',6],
@@ -157,9 +161,9 @@ html, body {
 		['Aleska Salas', 'Mesa',8],
 		['Jose Zalem', 'Mesa',8],
 		['Josue Mosquera', 'Mesa',8],
-		['José Luis Muñoz', 'Mesa',11],
-		['Jose Jose', 'Mesa',11],
-		['Angel Borges', 'Mesa',11],
+		['José Luis Muñoz', 'Mesa',8],
+		['Jose Jose', 'Mesa',8],
+		['Angel Borges', 'Mesa',8],
 
 		['Felix Utrera', 'Mesa',9],
 		['Gloryen Aponte', 'Mesa',9],
@@ -218,18 +222,16 @@ html, body {
 
 		// Insertar resumen en la tabla
 		const tbody = document.querySelector('#resumen_mesas tbody');
-		Object.keys(conteo).sort((a, b) => {
-		  return parseInt(a.replace("Mesa ", "")) - parseInt(b.replace("Mesa ", ""));
-		}).forEach(mesa => {
+		$.each(conteo, function(mesa, value){
 		  const tr = document.createElement('tr');
-		  tr.innerHTML = `<td>Mesa ${mesa}</td><td>${conteo[mesa]}</td>`;
+		  tr.innerHTML = `<td>Mesa ${mesa}</td><td>${value}</td>`;
 		  tbody.appendChild(tr);
 		});
 		
 		new DataTable('#resumen_mesas', {
 			paging: false,
 			searching: false,
-			order: [[0, 'asc']],
+			order: false,
 			layout: {
 				top: ''
 			},
@@ -260,6 +262,6 @@ html, body {
 		  </table>
 		</div>
 	</main>
-	<img src="ae.png" alt="Logo AE" class="logo-corner">
+	<img src="logo-ae.png" alt="Logo AE" class="logo-corner">
 </body>
 </html>
