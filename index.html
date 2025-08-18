@@ -5,21 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lista de Invitados</title>
   <style>
-	/*body {
-	  background-color: rgb(223, 210, 190); /* Beige más cálido */
-	  background-image: {
-		radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.2), transparent 70%),
-		radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.08), transparent 60%),
-		repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 3px, transparent 3px, transparent 8px),
-		repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.02) 0px, rgba(0, 0, 0, 0.02) 2px, transparent 2px, transparent 6px);
-	  background-blend-mode: multiply;
-	  box-shadow: inset 0 0 90px rgba(0, 0, 0, 0.15);
-	  font-family: "Georgia", serif;
-	  color: #333;
-	}*/
 
 	:root{
-	  --paper-base: rgb(223, 210, 190); /* Beige más marcado */
+	  --paper-base: linear-gradient(
+			to bottom,
+			rgb(223, 210, 190) 0%,
+			rgb(255, 245, 225) 100%
+		);
 	}
 
 	html, body {
@@ -31,17 +23,15 @@
 	  min-height: 100%;
 	  padding: 4rem 2rem;
 
-	  /* Papel beige arrugado/desgastado (solo CSS) */
-	  background-color: var(--paper-base);
-	  background-image:
-		radial-gradient(circle at 30% 20%, rgba(255,255,255,.20), transparent 70%),
-		radial-gradient(circle at 70% 80%, rgba(0,0,0,.08), transparent 60%),
-		repeating-linear-gradient(135deg, rgba(255,255,255,.05) 0px, rgba(255,255,255,.05) 3px, transparent 3px, transparent 8px),
-		repeating-linear-gradient(45deg, rgba(0,0,0,.02) 0px, rgba(0,0,0,.02) 2px, transparent 2px, transparent 6px);
+	  background-image: 
+		radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.2), transparent 70%),
+		radial-gradient(circle at 70% 80%, rgba(0, 0, 0, 0.08), transparent 60%),
+		repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 3px, transparent 3px, transparent 8px),
+		repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.02) 0px, rgba(0, 0, 0, 0.02) 2px, transparent 2px, transparent 6px);
 	  background-blend-mode: multiply;
-	  box-shadow: inset 0 0 90px rgba(0,0,0,.15);
+	  box-shadow: inset 0 0 90px rgba(0, 0, 0, 0.15);
+	  font-family: "Georgia", serif;
 	  color: #333;
-	  font-family: Georgia, "Times New Roman", serif;
 	}
 
 	.logo-corner {
@@ -53,13 +43,25 @@
 	  opacity: 0.85;  /* un poco translúcido si quieres elegancia */
 	  pointer-events: none; /* evita que bloquee clics */
 	  z-index: 100;   /* siempre encima del contenido */
+	  transition: bottom 0.4s cubic-bezier(.4,0,.2,1);
 	}
 	
 	/* Ocultar en pantallas de 600px o menos */
 	@media (max-width: 600px) {
 	  .logo-corner {
-		display: none;
-	  }
+			display: block;
+			position: static;
+			width: 100%;
+			max-width: 180px;
+			margin: 32px auto 0 auto;
+			left: auto;
+			right: auto;
+			bottom: auto;
+			opacity: 1;
+			z-index: 100;
+			padding: 12px 0;
+    		border-radius: 12px;
+		}
 	}
 
     table { border-collapse: collapse; width: 100%; max-width: 600px; }
@@ -132,7 +134,7 @@
 		['Engelbert Perez', 'Mesa',1],
 		['Maria Medina', 'Mesa',1],
 		['Genesis Perez', 'Mesa',1],
-		['Jean Carlos Sumavila', 'Mesa',1],
+		['Jean Franco Sumavila', 'Mesa',1],
 		['Xiomara Gonzalez', 'Mesa',1],
 		['Jorge Cabrera', 'Mesa',1],
 		['Jorge Cabrera Jr', 'Mesa',1],
@@ -286,36 +288,52 @@
 	document.addEventListener('DOMContentLoaded', function () {
     // ...tu código DataTable...
 
-    // Espera a que DataTable termine de renderizar
-    setTimeout(function() {
-        const table = document.querySelector('#lista_invitados');
-        if (!table) return;
-        const rows = table.querySelectorAll('tbody tr');
-        let lastMesa = null;
-        let lastRow = null;
+		// Espera a que DataTable termine de renderizar
+		setTimeout(function() {
+			const table = document.querySelector('#lista_invitados');
+			if (!table) return;
+			const rows = table.querySelectorAll('tbody tr');
+			let lastMesa = null;
+			let lastRow = null;
 
-        rows.forEach((row, idx) => {
-            // Obtén el número de mesa desde la segunda columna (ya renderizada)
-            const mesaText = row.children[1].textContent.trim();
-            const mesaNum = mesaText.match(/Mesa (\d+)/) ? mesaText.match(/Mesa (\d+)/)[1] : null;
+			rows.forEach((row, idx) => {
+				// Obtén el número de mesa desde la segunda columna (ya renderizada)
+				const mesaText = row.children[1].textContent.trim();
+				const mesaNum = mesaText.match(/Mesa (\d+)/) ? mesaText.match(/Mesa (\d+)/)[1] : null;
 
-            if (lastMesa === null) {
-                lastMesa = mesaNum;
-                lastRow = row;
-            } else if (mesaNum === lastMesa) {
-                lastRow = row;
-            } else {
-                // Cuando cambia la mesa, pon el borde al último de la anterior
-                lastRow.style.borderBottom = '1px solid #ccc';
-                lastMesa = mesaNum;
-                lastRow = row;
-            }
-        });
-        // Agrega el borde al último grupo
-        if (lastRow) {
-            lastRow.style.borderBottom = '1px solid #ccc';
-        }
-    }, 300); // Espera a que DataTable termine de renderizar
+				if (lastMesa === null) {
+					lastMesa = mesaNum;
+					lastRow = row;
+				} else if (mesaNum === lastMesa) {
+					lastRow = row;
+				} else {
+					// Cuando cambia la mesa, pon el borde al último de la anterior
+					lastRow.style.borderBottom = '1px solid #ccc';
+					lastMesa = mesaNum;
+					lastRow = row;
+				}
+			});
+			// Agrega el borde al último grupo
+			if (lastRow) {
+				lastRow.style.borderBottom = '1px solid #ccc';
+			}
+		}, 300); // Espera a que DataTable termine de renderizar
+
+		document.addEventListener('scroll', function () {
+			const logo = document.querySelector('.logo-corner');
+			const resumen = document.getElementById('footer_display');
+			if (!logo) return;
+
+			// Obtiene la posición del resumen respecto a la ventana
+			const resumenRect = resumen.getBoundingClientRect();
+
+			// Si el resumen está visible en la ventana (top < windowHeight)
+			if (resumenRect.top < window.innerHeight && resumenRect.bottom > 0) {
+				logo.style.bottom = '140px';
+			} else {
+				logo.style.bottom = '20px';
+			}
+		});
 });
 
   </script>
@@ -324,21 +342,21 @@
 <body>
 	<main class="paper">
 		<div style='text-align:center'>
-		  <h1>Boda A&E - 27 Sept. 25</h1>
-		  <h2>Lista de Invitados</h2>
-		  <table id='lista_invitados' class="display" width="100%"></table>
-		  
-		  <h2 style='margin-top:35px'>Resumen por mesa</h2>
-		  <table id="resumen_mesas" class="display" width="100%" >
+			<h1>Boda A&E - 27 Sept. 25</h1>
+			<h2>Lista de Invitados</h2>
+			<table id='lista_invitados' class="display" width="100%"></table>
+			
+			<h2 style='margin-top:35px'>Resumen por mesa</h2>
+			<table id="resumen_mesas" class="display" width="100%" >
 			<thead>
-			  <tr>
+				<tr>
 				<th>Mesa</th>
 				<th>Cantidad de Invitados</th>
-			  </tr>
+				</tr>
 			</thead>
 			<tbody></tbody>
 			<tfooter>
-				<tr>
+				<tr id="total_general">
 					<td>
 						<b>TOTAL GENERAL</b>
 					</td>
@@ -347,9 +365,24 @@
 					</td>
 				</tr>
 			</tfooter>
-		  </table>
+			</table>
 		</div>
+
+		<!-- Logo en la esquina inferior derecha -->
+		<img src="logo-ae.png" alt="Logo AE" class="logo-corner">
+		<footer style="text-align:center; margin-top:48px; font-size:0.95em; color:#555;" id="footer_display">
+  				<p>¡Gracias por acompañarnos en este día tan especial! <br>
+  				Si tienes alguna pregunta o necesitas más información, no nos jodas y guarda tus preguntas. <br>
+  				¡Disfruten! <br><br>
+  				
+  				Con cariño, <br>
+  				Angel & Engely</p>
+  				<br>
+			<hr>
+  				<b>&copy; 2025 Angel & Engely.</b><br>
+				Todos los derechos reservados.
+		</footer>
 	</main>
-	<img src="logo-ae.png" alt="Logo AE" class="logo-corner">
 </body>
+
 </html>
