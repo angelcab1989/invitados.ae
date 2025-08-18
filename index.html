@@ -95,6 +95,19 @@
 		margin: 0 auto;
 		width: 80%;
 	}
+
+	#resumen_mesas tbody tr { 
+		border-bottom: 1px solid #ccc; 
+	}
+	
+	#resumen_mesas thead tr { 
+		border-bottom: none; 
+	}
+
+	tbody tr:hover {
+		background-color: #dddddda6;
+	}
+
   </style>
   <!-- <link href="https://cdn.datatables.net/2.3.0/css/dataTables.dataTables.min.css" type="text/css" /> -->
   <!-- Bootstrap 5 CSS -->
@@ -266,6 +279,41 @@
 		
 	});
 
+	document.addEventListener('DOMContentLoaded', function () {
+    // ...tu código DataTable...
+
+    // Espera a que DataTable termine de renderizar
+    setTimeout(function() {
+        const table = document.querySelector('#lista_invitados');
+        if (!table) return;
+        const rows = table.querySelectorAll('tbody tr');
+        let lastMesa = null;
+        let lastRow = null;
+
+        rows.forEach((row, idx) => {
+            // Obtén el número de mesa desde la segunda columna (ya renderizada)
+            const mesaText = row.children[1].textContent.trim();
+            const mesaNum = mesaText.match(/Mesa (\d+)/) ? mesaText.match(/Mesa (\d+)/)[1] : null;
+
+            if (lastMesa === null) {
+                lastMesa = mesaNum;
+                lastRow = row;
+            } else if (mesaNum === lastMesa) {
+                lastRow = row;
+            } else {
+                // Cuando cambia la mesa, pon el borde al último de la anterior
+                lastRow.style.borderBottom = '1px solid #ccc';
+                lastMesa = mesaNum;
+                lastRow = row;
+            }
+        });
+        // Agrega el borde al último grupo
+        if (lastRow) {
+            lastRow.style.borderBottom = '1px solid #ccc';
+        }
+    }, 300); // Espera a que DataTable termine de renderizar
+});
+
   </script>
 </head>
 
@@ -278,7 +326,10 @@
 		  <h2 style='margin-top:35px'>Resumen por mesa</h2>
 		  <table id="resumen_mesas" class="display" width="100%" >
 			<thead>
-			  <tr><th>Mesa</th><th>Cantidad de Invitados</th></tr>
+			  <tr>
+				<th>Mesa</th>
+				<th>Cantidad de Invitados</th>
+			  </tr>
 			</thead>
 			<tbody></tbody>
 		  </table>
