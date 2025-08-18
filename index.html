@@ -54,107 +54,104 @@
   <script>
   document.addEventListener('DOMContentLoaded', function () {
 	var dataSet = [
-		['Engely Perez', 'Mesa 1',1],
-		['Angel Cabrera', 'Mesa 1',1],
-		['Bruno Cabrera', 'Mesa 1',1], //niñ@
-		['Engelbert Perez', 'Mesa 1',1],
-		['Maria Medina', 'Mesa 1',1],
-		['Genesis Perez', 'Mesa 1',1],
-		['Jean Carlos Sumavila', 'Mesa 1',1],
-		['Xiomara Gonzalez', 'Mesa 1',1],
-		['Jorge Cabrera', 'Mesa 1',1],
-		['Jorge Cabrera Jr', 'Mesa 1',1],
-		['Paola Rivero', 'Mesa 1',1],
+		['Engely Perez', 'Mesa',1],
+		['Angel Cabrera', 'Mesa',1],
+		['Bruno Cabrera', 'Mesa',1], //niñ@
+		['Engelbert Perez', 'Mesa',1],
+		['Maria Medina', 'Mesa',1],
+		['Genesis Perez', 'Mesa',1],
+		['Jean Carlos Sumavila', 'Mesa',1],
+		['Xiomara Gonzalez', 'Mesa',1],
+		['Jorge Cabrera', 'Mesa',1],
+		['Jorge Cabrera Jr', 'Mesa',1],
+		['Paola Rivero', 'Mesa',1],
+		['Arturo Navas', 'Mesa',1],
 		
-		['Manuel Rodriguez', 'Mesa 2',2],
-		['Marian Delgado', 'Mesa 2',2],
-		['Helena Rodríguez', 'Mesa 2',2], //niñ@
-		['Arturo Navas', 'Mesa 2',2],
-		['Jefferson Gamez', 'Mesa 2',2],
-		['Roman Valenzuela', 'Mesa 2',2],
-		['Blanca Gonzalez', 'Mesa 2',2],
-		['Jesus David Valenzuela', 'Mesa 2',2],
+		['Manuel Rodriguez', 'Mesa',2],
+		['Marian Delgado', 'Mesa',2],
+		['Helena Rodríguez', 'Mesa',2], //niñ@
+		['Roman Valenzuela', 'Mesa',2],
+		['Blanca Gonzalez', 'Mesa',2],
+		['Jesus David Valenzuela', 'Mesa',2],
 		
-		['Engimar Perez', 'Mesa 3',3],
-		['Wendy Liendo', 'Mesa 3',3],
-		['Javier Betancourt', 'Mesa 3',3],
-		['Sybaris Corona', 'Mesa 3',3],
-		['Jesus Acevedo', 'Mesa 3',3],
-		['Pareja Jesus', 'Mesa 3',3],
-		['Albert Acevado.', 'Mesa 3',3],
-		['Pareja Albert', 'Mesa 3',3],
+		
+		['Engimar Perez', 'Mesa',3],
+		['Wendy Liendo', 'Mesa',3],
+		['Javier Betancourt', 'Mesa',3],
+		['Sybaris Corona', 'Mesa',3],
+		['Jesus Acevedo', 'Mesa',3],
+		['Albert Acevado.', 'Mesa',3],
 				
-		['Zuli Betancourt', 'Mesa 4',4],
-		['Emily Medina', 'Mesa 4',4],
-		['Jorge Liendo.', 'Mesa 4',4],
-		['Dominga', 'Mesa 4',4],
-		['Gaby Betancourt', 'Mesa 4',4],
-		['Diego', 'Mesa 4',4],
-		['Cesar', 'Mesa 4',4],
+		['Zuleidy Reyes', 'Mesa',4],
+		['Emily Medina', 'Mesa',4],
+		['Jorge Liendo.', 'Mesa',4],
+		['Dominga Planchart', 'Mesa',4],
+		['Gaby Betancourt', 'Mesa',4],
+		['Diego Izzo', 'Mesa',4],
 		
-		['Heli García', 'Mesa 5',5],
-		['Fabian García', 'Mesa 5',5],
-		['Isabel García', 'Mesa 5',5],
-		['Samuel', 'Mesa 5',5],
-		['Samuel Jr', 'Mesa 5',5], //niñ@
-		['MIranda', 'Mesa 5',5], //niñ@
-		['Maritza', 'Mesa 5',5],
-		['Rodrigo Carvajal', 'Mesa 5',5],
 		
-		['Nicolas Dmelios', 'Mesa 6',6],
-		['Lilibeth Esposa NIco', 'Mesa 6',6],
-		['Amelie Dmelios', 'Mesa 6',6], //niñ@
-		['Pedro Pico', 'Mesa 6',6],
-		['Adriana Andrade', 'Mesa 6',6],
-		['Leopoldo Soto', 'Mesa 6',6],
-		['Albanys Esposa Leo', 'Mesa 6',6],
-		['Martin Soto', 'Mesa 6',6], //niñ@
-		['Francelys Heredia', 'Mesa 6',6],
-		['Heberth Caripa', 'Mesa 6',6],
+		['Heli García', 'Mesa',5],
+		['Fabian García', 'Mesa',5],
+		['Isabel García', 'Mesa',5],
+		['Samuel Nieve', 'Mesa',5],
+		['Samuel Jr. Nieve', 'Mesa',5], //niñ@
+		['Miranda Nieve', 'Mesa',5], //niñ@
+		['Maritza', 'Mesa',5],
+		['Rodrigo Carvajal', 'Mesa',5],
 		
-		['Liliana Uribe', 'Mesa 7',7],
-		['Pedro Orozco', 'Mesa 7',7],
-		['Diego Orozco', 'Mesa 7',7],
-		['Mailyn Lozada', 'Mesa 7',7],
-		['Francisco Esposo May', 'Mesa 7',7],
-		['Rosimart Gomez', 'Mesa 7',7],
-		['Manuel Esposo Rosi', 'Mesa 7',7],
-		['Orlando Pernia', 'Mesa 7',7],
+		['Nicolas D\'Amelio', 'Mesa',6],
+		['Lilibeth Achji', 'Mesa',6],
+		['Amelie D\'Amelio', 'Mesa',6], //niñ@
+		['Pedro Pico', 'Mesa',6],
+		['Adriana Andrade', 'Mesa',6],
+		['Leopoldo Soto', 'Mesa',6],
+		['Albanys Silva', 'Mesa',6],
+		['Martin Soto', 'Mesa',6], //niñ@
+		['Francelys Heredia', 'Mesa',6],
+		['Heberth Caripa', 'Mesa',6],
 		
-		['Jorge Simoes', 'Mesa 8',8],
-		['Kamaly Acevedo', 'Mesa 8',8],
-		['Aleska Salas', 'Mesa 8',8],
-		['Jose Zalem', 'Mesa 8',8],
-		['Jairo Marín', 'Mesa 8',8],
-		['Pareja Jairo', 'Mesa 8',8],
-		['Dany Jojoto', 'Mesa 8',8],
+		['Liliana Uribe', 'Mesa',7],
+		['Pedro Orozco', 'Mesa',7],
+		['Diego Orozco', 'Mesa',7],
+		['Mailyn Lozada', 'Mesa',7],
+		['Francisco Peña', 'Mesa',7],
+		['Rosimart Gomez', 'Mesa',7],
+		['Manuel Maldonado', 'Mesa',7],
+		['Orlando Pernia', 'Mesa',7],
 		
-		['Rafael Machado', 'Mesa 9',9],
-		['Pareja Rafa', 'Mesa 9',9],
-		['Sr. Carmen de Machado', 'Mesa 9',9],
-		['Felix Utrera', 'Mesa 9',9],
-		['Gloryen', 'Mesa 9',9],
-		['felix Jr', 'Mesa 9',9],
-		['Giselle Utrera', 'Mesa 9',9], //niñ@
-		['Guillermo Horno', 'Mesa 9',9],
-		['Mariana Márquez', 'Mesa 9',9],
-		['Federica Horno', 'Mesa 9',9], //niñ@
-		['Juliana Horno', 'Mesa 9',9], //niñ@
-		
-		['Jennifer Brito', 'Mesa 10',10],
-		['Pareja Jenny', 'Mesa 10',10],
-		['Esther Marquez', 'Mesa 10',10],
-		['Pedro Rodríguez', 'Mesa 10',10],
-		['Karla Padilla', 'Mesa 10',10],
-		['Miguel Quintero', 'Mesa 10',10],
-		['Maximo Quintero', 'Mesa 10',10], //niñ@
-		
-		['José Luis Muñoz', 'Mesa 11',11],
-		['Jose Jose', 'Mesa 11',11],
-		['Angel Borges', 'Mesa 11',11],
-		['Joel Pallotta', 'Mesa 11',11],
-		['Pareja Joel', 'Mesa 11',11],
-		
+		['Jorge Simoes', 'Mesa',8],
+		['Kamaly Acevedo', 'Mesa',8],
+		['Aleska Salas', 'Mesa',8],
+		['Jose Zalem', 'Mesa',8],
+		['Josue Mosquera', 'Mesa',8],
+		['José Luis Muñoz', 'Mesa',11],
+		['Jose Jose', 'Mesa',11],
+		['Angel Borges', 'Mesa',11],
+
+		['Felix Utrera', 'Mesa',9],
+		['Gloryen Aponte', 'Mesa',9],
+		['Felix Jr. Utrera', 'Mesa',9],
+		['Giselle Utrera', 'Mesa',9], //niñ@
+		['Guillermo Horno', 'Mesa',9],
+		['Mariana Márquez', 'Mesa',9],
+		['Federica Horno', 'Mesa',9], //niñ@
+		['Juliana Horno', 'Mesa',9], //niñ@
+
+		['Jennifer Brito', 'Mesa',10],
+		['José Barrios', 'Mesa',10],
+		['Esther Marquez', 'Mesa',10],
+		['Pedro Rodríguez', 'Mesa',10],
+		['Karla Padilla', 'Mesa',10],
+		['Miguel Quintero', 'Mesa',10],
+		['Maximo Quintero', 'Mesa',10], //niñ@
+
+		['Joel Pallotta', 'Mesa',11],
+		['Pareja Joel', 'Mesa',11],
+		['Rafael Machado', 'Mesa',11],
+		['Angely Rojo', 'Mesa',11],
+		['Carmen Morales', 'Mesa',11],
+		['Jairo Marín', 'Mesa',11],
+		['Pareja Jairo', 'Mesa',11],
 	];
 
 		new DataTable('#lista_invitados', {
@@ -163,7 +160,7 @@
 				{ title: 'Nombre' },
 				{ 
 					title: 'Mesa',
-					//render: (data) => `Mesa ${data}`
+					render: (data) => `Mesa ${data}`
 				},
 				{ title: 'Order', 'visible':false }
 			],
